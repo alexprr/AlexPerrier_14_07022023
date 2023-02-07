@@ -1,7 +1,12 @@
 import "./App.css";
+import { CreateEmployee } from "./components/index.js";
 
 function App() {
-  return <div>App</div>;
+  return (
+    <div>
+      <CreateEmployee />
+    </div>
+  );
 }
 
 export default App;
