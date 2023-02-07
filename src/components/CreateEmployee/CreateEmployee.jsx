@@ -3,56 +3,86 @@ import "./create-employee.css"
 
 const CreateEmployee = () => {
   return (
-    <>
-        <header className='header'>
-            <h1 className="title">HRnet</h1>
+    <div>
+        <header className='header flex'>
+            <h1 className="header__title">HRnet</h1>
         </header>
 
         <main className='main container'>
-        <a href="employee-list.html">View Current Employees</a>
-            <h2>Create Employee</h2>
-            <form id="create-employee">
-                <label for="first-name">First Name</label>
-                <input type="text" id="first-name" />
+            <section className="employee flex">
+                <div className="employee__content">
+                    <div className='employee__title'>
+                        <h2>
+                            Create Employee
+                            <i className="uil uil-user-plus employee__title-icon"></i>
+                        </h2>
+                        <a href="employee-list.html" className='employee__title-link'>View Current Employees</a>
+                    </div>
+                    <form id="create-employee" className='employee__form'>
+                        <div className="input__group">
+                            <label htmlFor="first-name">First name :</label>
+                            <input type="text" id="first-name" />
+                        </div>
+                        
+                        <div className="input__group">
+                            <label htmlFor="last-name">Last name :</label>
+                            <input type="text" id="last-name" />
+                        </div>
 
-                <label for="last-name">Last Name</label>
-                <input type="text" id="last-name" />
+                        <div className="input__group">
+                            <label htmlFor="date-of-birth">Date of birth :</label>
+                            <input id="date-of-birth" type="date" />
+                        </div>
 
-                <label for="date-of-birth">Date of Birth</label>
-                <input id="date-of-birth" type="text" />
+                        <div className="input__group">
+                            <label htmlFor="start-date">Start date :</label>
+                            <input id="start-date" type="date" />
+                        </div>
 
-                <label for="start-date">Start Date</label>
-                <input id="start-date" type="text" />
+                        <fieldset className="employee__address">
+                            <legend>Address</legend>
 
-                <fieldset class="address">
-                    <legend>Address</legend>
+                            <div className="input__group">
+                                <label htmlFor="street">Street :</label>
+                                <input id="street" type="text" />
+                            </div>
 
-                    <label for="street">Street</label>
-                    <input id="street" type="text" />
+                            <div className="input__group">
+                                <label htmlFor="city">City :</label>
+                                <input id="city" type="text" />
+                            </div>
 
-                    <label for="city">City</label>
-                    <input id="city" type="text" />
+                            <div className="input__group">
+                                <label htmlFor="state">State :</label>
+                                <select name="state" id="state"></select>
+                            </div>
 
-                    <label for="state">State</label>
-                    <select name="state" id="state"></select>
+                            <div className="input__group">
+                                <label htmlFor="zip-code">Zip code :</label>
+                                <input id="zip-code" type="number" />
+                            </div>
+                        </fieldset>
 
-                    <label for="zip-code">Zip Code</label>
-                    <input id="zip-code" type="number" />
-                </fieldset>
+                        <div className="select__group">
+                            <label htmlFor="department">Department :</label>
+                            <select name="department" id="department">
+                                <option>Sales</option>
+                                <option>Marketing</option>
+                                <option>Engineering</option>
+                                <option>Human Resources</option>
+                                <option>Legal</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
 
-                <label for="department">Department</label>
-                <select name="department" id="department">
-                    <option>Sales</option>
-                    <option>Marketing</option>
-                    <option>Engineering</option>
-                    <option>Human Resources</option>
-                    <option>Legal</option>
-                </select>
-            </form>
-
-            <button>Save</button>
+                    <button className="button">
+                        Save 
+                        <i className="uil uil-plus-circle button__icon"></i>
+                    </button>
+            </section>
         </main>
-    </>
+    </div>
   )
 }
 

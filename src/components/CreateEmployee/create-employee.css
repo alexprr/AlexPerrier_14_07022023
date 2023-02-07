@@ -1,0 +1,146 @@
+.header {
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 0;
+    background-color: rgb(26, 188, 156);
+    color: #fff;
+}
+
+.header__list {
+    list-style: none;
+}
+
+.employee {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.employee__content {
+    margin: 2rem 0;
+}
+
+.employee__title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.employee__title-icon {
+    margin-left: 8px;
+}
+
+.employee__title-link {
+    color: #000;
+}
+
+.employee__title-link:hover {
+    color: rgb(26, 188, 156);
+    border-bottom: 1px solid rgb(26, 188, 156);
+}
+
+.employee__form {
+    width: 600px;
+    display: grid;
+    gap: 1rem;
+}
+
+.input__group {
+    margin-bottom: 5px;
+}
+
+.input__group,
+.select__group {
+    display: flex;
+    flex-direction: column;
+}
+
+.input__group label,
+.select__group label {
+    margin-bottom: .5rem;
+    color: #777;
+    font-weight: 600;
+}
+
+.input__group input {
+    width: 260px;
+}
+
+.input__group select,
+.select__group select {
+    width: 400px;
+}
+
+.input__group input,
+.input__group select,
+.select__group select {
+    padding: 6px;
+    border: 1px solid #777;
+    font-size: 1rem;
+}
+
+.employee__address {
+    display: flex;
+    flex-direction: column;
+}
+
+.employee__address {
+    padding: 1rem;
+    border: 1px solid #777;
+    border-radius: 1rem;
+}
+
+.employee__address legend {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+@media screen and (max-width: 768px) {
+    .employee__content {
+        margin: 1rem 0;
+    }
+
+    .employee__form {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .employee h2 {
+        font-size: 1rem;
+    }
+
+    .employee__title-link {
+        font-size: small;
+    }
+
+    .employee__address legend {
+        font-size: 1rem;
+    }
+
+    .input__group input {
+        font-size: 0.875rem;
+        padding: 4px;
+    }
+
+    .input__group label,
+    .select__group label {
+        font-size: 0.875rem;
+    }
+}
+
+@media screen and (max-width: 499px) {
+    .input__group select,
+    .select__group select {
+        width: initial;
+    }
+
+    .employee__title {
+        display: block;
+    }
+
+    .employee__title h2 {
+        margin-bottom: 0.5rem;
+    }
+}
