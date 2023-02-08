@@ -1,7 +1,6 @@
 import React from 'react'
 import { Header } from "../index"
 import "./create-employee.css"
-
 import { states } from '../../utils/constants';
 
 const CreateEmployee = () => {
@@ -17,7 +16,7 @@ const CreateEmployee = () => {
                             Create Employee
                             <i className="uil uil-user-plus employee__title-icon"></i>
                         </h2>
-                        <a href="employee-list.html" className='employee__title-link'>View Current Employees</a>
+                        <a href="/employees-list" className='employee__title-link'>View Current Employees</a>
                     </div>
                     <form id="create-employee" className='employee__form'>
                         <div className="input__group">
