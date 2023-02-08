@@ -1,6 +1,8 @@
 import React from 'react'
 import "./create-employee.css"
 
+import { states } from '../utils/constants';
+
 const CreateEmployee = () => {
   return (
     <div>
@@ -54,7 +56,11 @@ const CreateEmployee = () => {
 
                             <div className="input__group">
                                 <label htmlFor="state">State :</label>
-                                <select name="state" id="state"></select>
+                                <select name="state" id="state">
+                                    {states.map((state, index) => (
+                                        <option key={index} value={state.abbreviation}>{state.name}</option>
+                                    ))}
+                                </select>
                             </div>
 
                             <div className="input__group">
