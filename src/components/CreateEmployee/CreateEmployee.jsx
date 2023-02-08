@@ -1,4 +1,5 @@
 import React from 'react'
+import { Header } from "../index"
 import "./create-employee.css"
 
 import { states } from '../utils/constants';
@@ -6,9 +7,7 @@ import { states } from '../utils/constants';
 const CreateEmployee = () => {
   return (
     <div>
-        <header className='header flex'>
-            <h1 className="header__title">HRnet</h1>
-        </header>
+        <Header />
 
         <main className='main container'>
             <section className="employee flex">
