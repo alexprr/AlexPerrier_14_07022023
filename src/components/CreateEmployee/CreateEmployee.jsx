@@ -2,7 +2,7 @@ import React from 'react'
 import { Header } from "../index"
 import "./create-employee.css"
 
-import { states } from '../utils/constants';
+import { states } from '../../utils/constants';
 
 const CreateEmployee = () => {
   return (
