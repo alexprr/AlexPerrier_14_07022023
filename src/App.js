@@ -1,10 +1,14 @@
 import "./App.css";
-import { CreateEmployee } from "./components/index.js";
+import { CreateEmployee, EmployeeList } from "./components/index";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
   return (
     <div>
-      <CreateEmployee />
+      <Routes>
+        <Route path="/" element={<CreateEmployee />} />
+        <Route path="/employees-list" element={<EmployeeList />} />
+      </Routes>
     </div>
   );
 }
