@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Header } from "../index"
+import Modal from './Modal'
 import "./create-employee.css"
 import { states } from '../../utils/constants';
 
 const CreateEmployee = () => {
+    const [openModal, setOpenModal] = useState(false);
+
   return (
     <div>
         <Header />
@@ -80,12 +83,14 @@ const CreateEmployee = () => {
                     </form>
                 </div>
 
-                    <button className="button">
-                        Save 
-                        <i className="uil uil-plus-circle button__icon"></i>
-                    </button>
+                <button className="button" onClick={() => setOpenModal(true)}>
+                    Save 
+                    <i className="uil uil-plus-circle button__icon"></i>
+                </button>
             </section>
         </main>
+
+        <Modal open={openModal} onClose={() => setOpenModal(false)}/>
     </div>
   )
 }
