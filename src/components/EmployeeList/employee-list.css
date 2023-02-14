@@ -1,0 +1,40 @@
+.employees__container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.employees {
+    flex-direction: column;
+}
+
+.employees__content {
+    margin: 2rem 0;
+}
+
+.employees__title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.employees__title-icon {
+    margin-left: 8px;
+}
+
+.employees__title-link {
+    color: #000;
+}
+
+.employees__title-link:hover {
+    color: rgb(26, 188, 156);
+    border-bottom: 1px solid rgb(26, 188, 156);
+}
+
+.employees__table {
+    width: 100%;
+}
+
+.employees__table th {
+    text-align: left;
+}
