@@ -1,8 +1,20 @@
-import React from 'react'
-import { Header } from "../index"
-import "./employee-list.css"
+// Hooks
+import React, { useMemo } from 'react';
+// Components
+import { Header, EmployeeTable } from "../index";
+// css
+import "./employee-list.css";
+// redux
+import { useSelector } from 'react-redux';
+
+import { COLUMNS} from '../../utils/constants';
 
 const EmployeeList = () => {
+    const { employeesList } = useSelector((state) => state.employee);
+    
+    const data = useMemo(() => employeesList, [employeesList]);
+    const columns = useMemo(() => COLUMNS, []);
+
   return (
     <div>
         <Header />
@@ -18,6 +30,8 @@ const EmployeeList = () => {
                         <a href="/" className='employees__title-link'>Home</a>
                     </div>
                 </div>
+
+                <EmployeeTable data={data} columns={columns} />
             </section>
         </main>
     </div>
