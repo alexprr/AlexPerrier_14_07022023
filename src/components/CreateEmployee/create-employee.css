@@ -84,6 +84,14 @@
     font-weight: 600;
 }
 
+.employee__form-button {
+    display: flex;
+    justify-content: center;
+    justify-self: center;
+    align-items: center;
+    max-width: 150px;
+}
+
 @media screen and (max-width: 768px) {
     .employee__content {
         margin: 1rem 0;

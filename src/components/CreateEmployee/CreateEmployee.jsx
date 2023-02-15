@@ -10,16 +10,7 @@ import { add } from '../../features/employeeSlice';
 const CreateEmployee = () => {
     // states
     const [openModal, setOpenModal] = useState(false);
-    const [employeeInfos, setEmployeeInfos] = useState({
-        firstname: "",
-        lastname: "",
-        dateOfBirth: null,
-        startDate: null,
-        street: "",
-        city: "",
-        state: "",
-        zipCode: null,
-        department: "",
+    const [employeeInfos, setEmployeeInfos] = useState({firstname: "", lastname: "", dateOfBirth: null,startDate: null, street: "", city: "", state: "", zipCode: null, department: "",
     })
 
     // redux tools
@@ -34,8 +25,11 @@ const CreateEmployee = () => {
         })
     }
 
-    console.log(employeeInfos);
-    
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        dispatch(add(employeeInfos));
+    }
+
   return (
     <div>
         <Header />
@@ -50,7 +44,7 @@ const CreateEmployee = () => {
                         </h2>
                         <a href="/employees-list" className='employee__title-link'>View Current Employees</a>
                     </div>
-                    <form id="create-employee" className='employee__form'>
+                    <form id="create-employee" className='employee__form' onSubmit={handleSubmit}>
                         <div className="input__group">
                             <label htmlFor="first-name">First name :</label>
                             <input type="text" id="first-name" name='firstname' onChange={handleInputChange}/>
@@ -109,13 +103,13 @@ const CreateEmployee = () => {
                                 <option>Legal</option>
                             </select>
                         </div>
+
+                        <button className="button employee__form-button" type='submit'>
+                            Save 
+                            <i className="uil uil-plus-circle button__icon"></i>
+                        </button>
                     </form>
                 </div>
-
-                <button className="button" type='submit' onClick={() => dispatch(add(employeeInfos))}>
-                    Save 
-                    <i className="uil uil-plus-circle button__icon"></i>
-                </button>
             </section>
         </main>
 
