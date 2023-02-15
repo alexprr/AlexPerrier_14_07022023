@@ -1,13 +1,11 @@
 import React from 'react';
-
 // react-table
-import { useTable } from "react-table";
+import { useTable, useSortBy, useGlobalFilter } from "react-table";
+import GlobalFilter from './GlobalFilter';
 
-import "../EmployeeList/employee-list.css";
+import "./table.css";
 
 const EmployeeTable = ({ data, columns }) => {
-
-  const tableInstance = useTable({columns, data });
 
   const {
       getTableProps,
@@ -15,38 +13,54 @@ const EmployeeTable = ({ data, columns }) => {
       headerGroups,
       rows,
       prepareRow,
-  } = tableInstance;
+      state,
+      setGlobalFilter,
+  } = useTable({
+    columns, 
+    data 
+  },
+  useGlobalFilter,
+  useSortBy
+  )
+
+  const { globalFilter } = state
 
   return (
-    <table {...getTableProps()} className="employees__table">
-     <thead>
-      {headerGroups.map((headerGroup) => (
-        <tr {...headerGroup.getHeaderGroupProps()}>
-          {headerGroup.headers.map((column) => (
-            <th {...column.getHeaderProps()}>
-              {column.render("Header")}
-            </th>
-          ))}
-        </tr>
-      ))}
-     </thead>
-     <tbody {...getTableBodyProps()}>
-          {rows.map(row => {
-            prepareRow(row);
-            return (
-              <tr {...row.getRowProps()}>
-                {row.cells.map((cell) => {
-                  return (
-                    <td {...cell.getCellProps()}>
-                      {cell.render("Cell")}
-                    </td>
-                  );
-                })}
-              </tr>
-            );
-          })}
-        </tbody>
-   </table>
+    <>
+    <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} />
+      <table {...getTableProps()} className='table'>
+      <thead>
+        {headerGroups.map((headerGroup) => (
+          <tr {...headerGroup.getHeaderGroupProps()}>
+            {headerGroup.headers.map((column) => (
+              <th {...column.getHeaderProps(column.getSortByToggleProps())}>
+                {column.render("Header")}
+                <span>
+                  {column.isSorted ? (column.isSortedDesc ? "🔽" : "🔼") : ''}
+                </span>
+              </th>
+            ))}
+          </tr>
+        ))}
+      </thead>
+      <tbody {...getTableBodyProps()}>
+            {rows.map(row => {
+              prepareRow(row);
+              return (
+                <tr {...row.getRowProps()}>
+                  {row.cells.map((cell) => {
+                    return (
+                      <td {...cell.getCellProps()}>
+                        {cell.render("Cell")}
+                      </td>
+                    );
+                  })}
+                </tr>
+              );
+            })}
+          </tbody>
+    </table>
+   </>
   )
 }
 

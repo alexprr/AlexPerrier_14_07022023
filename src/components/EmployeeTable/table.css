@@ -1,0 +1,46 @@
+.table {
+    border-collapse: collapse;
+}
+
+.table th,
+.table td {
+    border: 1px solid black;
+    padding: 8px;
+}
+
+.table thead tr {
+    background-color: rgb(26, 188, 156);
+}
+
+.table tbody tr:nth-child(odd) {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.table__search {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1rem;
+}
+
+.table__search input {
+    padding: 3px;
+    border: 1px solid #777;
+    font-size: 1rem;
+}
+
+@media screen and (max-width: 992px) {
+    .table {
+        font-size: 0.875rem;
+    }
+}
+
+@media screen and (max-width: 830px) {
+    .table {
+        font-size: 0.825rem;
+    }
+
+    .table th,
+    .table td {
+        padding: 4px;
+    }
+}
