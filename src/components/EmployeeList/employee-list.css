@@ -30,11 +30,3 @@
     color: rgb(26, 188, 156);
     border-bottom: 1px solid rgb(26, 188, 156);
 }
-
-.employees__table {
-    width: 100%;
-}
-
-.employees__table th {
-    text-align: left;
-}
