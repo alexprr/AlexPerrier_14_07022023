@@ -28,6 +28,7 @@ const CreateEmployee = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch(add(employeeInfos));
+        setOpenModal(true);
     }
 
   return (
@@ -47,22 +48,42 @@ const CreateEmployee = () => {
                     <form id="create-employee" className='employee__form' onSubmit={handleSubmit}>
                         <div className="input__group">
                             <label htmlFor="first-name">First name :</label>
-                            <input type="text" id="first-name" name='firstname' onChange={handleInputChange}/>
+                            <input 
+                            type="text" 
+                            id="first-name" 
+                            name='firstname' 
+                            required
+                            onChange={handleInputChange}/>
                         </div>
                         
                         <div className="input__group">
                             <label htmlFor="last-name">Last name :</label>
-                            <input type="text" id="last-name" name='lastname' onChange={handleInputChange}/>
+                            <input 
+                            type="text" 
+                            id="last-name" 
+                            name='lastname' 
+                            required
+                            onChange={handleInputChange}/>
                         </div>
 
                         <div className="input__group">
                             <label htmlFor="date-of-birth">Date of birth :</label>
-                            <input id="date-of-birth" type="date" name='dateOfBirth' onChange={handleInputChange}/>
+                            <input 
+                            id="date-of-birth" 
+                            type="date" 
+                            name='dateOfBirth'
+                            required 
+                            onChange={handleInputChange}/>
                         </div>
 
                         <div className="input__group">
                             <label htmlFor="start-date">Start date :</label>
-                            <input id="start-date" type="date" name='startDate' onChange={handleInputChange}/>
+                            <input 
+                            id="start-date" 
+                            type="date" 
+                            name='startDate'
+                            required 
+                            onChange={handleInputChange}/>
                         </div>
 
                         <fieldset className="employee__address">
@@ -70,17 +91,31 @@ const CreateEmployee = () => {
 
                             <div className="input__group">
                                 <label htmlFor="street">Street :</label>
-                                <input id="street" type="text" name='street' onChange={handleInputChange}/>
+                                <input 
+                                id="street" 
+                                type="text" 
+                                name='street'
+                                required 
+                                onChange={handleInputChange}/>
                             </div>
 
                             <div className="input__group">
                                 <label htmlFor="city">City :</label>
-                                <input id="city" type="text" name='city' onChange={handleInputChange}/>
+                                <input 
+                                id="city" 
+                                type="text" 
+                                name='city' 
+                                required
+                                onChange={handleInputChange}/>
                             </div>
 
                             <div className="input__group">
                                 <label htmlFor="state">State :</label>
-                                <select name="state" id="state" onChange={handleInputChange}>
+                                <select 
+                                name="state" 
+                                id="state" 
+                                required
+                                onChange={handleInputChange}>
                                     {states.map((state, index) => (
                                         <option key={index} value={state.abbreviation}>{state.name}</option>
                                     ))}
@@ -89,13 +124,22 @@ const CreateEmployee = () => {
 
                             <div className="input__group">
                                 <label htmlFor="zip-code">Zip code :</label>
-                                <input id="zip-code" type="number" name='zipCode' onChange={handleInputChange}/>
+                                <input 
+                                id="zip-code" 
+                                type="number" 
+                                name='zipCode'
+                                required 
+                                onChange={handleInputChange}/>
                             </div>
                         </fieldset>
 
                         <div className="select__group">
                             <label htmlFor="department">Department :</label>
-                            <select name="department" id="department" onChange={handleInputChange}>
+                            <select 
+                            name="department" 
+                            id="department"
+                            required 
+                            onChange={handleInputChange}>
                                 <option>Sales</option>
                                 <option>Marketing</option>
                                 <option>Engineering</option>
