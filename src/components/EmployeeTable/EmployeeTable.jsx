@@ -1,7 +1,8 @@
 import React from 'react';
 // react-table
-import { useTable, useSortBy, useGlobalFilter } from "react-table";
+import { useTable, useSortBy, useGlobalFilter, usePagination } from "react-table";
 import GlobalFilter from './GlobalFilter';
+import DropdownFilter from './DropdownFilter';
 
 import "./table.css";
 
@@ -11,7 +12,13 @@ const EmployeeTable = ({ data, columns }) => {
       getTableProps,
       getTableBodyProps,
       headerGroups,
-      rows,
+      page,
+      nextPage,
+      previousPage,
+      canNextPage,
+      canPreviousPage,
+      pageOptions,
+      setPageSize,
       prepareRow,
       state,
       setGlobalFilter,
@@ -20,14 +27,21 @@ const EmployeeTable = ({ data, columns }) => {
     data 
   },
   useGlobalFilter,
-  useSortBy
+  useSortBy,
+  usePagination
   )
 
-  const { globalFilter } = state
+  
+  const { globalFilter } = state;
+  const { pageIndex, pageSize } = state;
 
   return (
     <>
-    <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} />
+      <div className='filters'>
+        <DropdownFilter pageSize={pageSize} setPageSize={setPageSize} />
+        <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} />
+      </div>
+    
       <table {...getTableProps()} className='table'>
       <thead>
         {headerGroups.map((headerGroup) => (
@@ -44,7 +58,7 @@ const EmployeeTable = ({ data, columns }) => {
         ))}
       </thead>
       <tbody {...getTableBodyProps()}>
-            {rows.map(row => {
+            {page.map(row => {
               prepareRow(row);
               return (
                 <tr {...row.getRowProps()}>
@@ -60,6 +74,28 @@ const EmployeeTable = ({ data, columns }) => {
             })}
           </tbody>
     </table>
+
+    <div className='pagination'>
+      <div className='pagination__entries'>
+        <span>
+          Showing <b>{page.length}</b> of <b>{pageSize}</b>
+        </span>
+      </div>
+      
+      <div className='pagination__index'>
+        <span>
+          Page{' '}
+          <strong>
+            {pageIndex + 1} of {pageOptions.length}
+          </strong>
+        </span>
+        <div>
+          <button className='index-btn' onClick={() => previousPage()} disabled={!canPreviousPage}>Previous</button>
+          <button onClick={() => nextPage()} disabled={!canNextPage}>Next</button>
+        </div>
+      </div>
+      
+    </div>
    </>
   )
 }

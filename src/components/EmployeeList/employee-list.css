@@ -30,3 +30,21 @@
     color: rgb(26, 188, 156);
     border-bottom: 1px solid rgb(26, 188, 156);
 }
+
+@media screen and (min-width: 992px) {
+    .employees__container {
+        padding-inline: 4rem;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .employees__container {
+        padding-inline: 1rem;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .employees__container {
+        padding-inline: .5rem;
+    }
+}
