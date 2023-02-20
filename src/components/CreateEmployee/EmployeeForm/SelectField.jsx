@@ -10,12 +10,14 @@ import { states } from "../../../utils/constants";
 
 const SelectField = ({label, name, onInputChange}) => {
     return (
-        <TextField 
+        <TextField
+        required 
         select
         label={label} 
         name={name} 
         onChange={onInputChange}
         size="small"
+        variant="standard"
         >
             {states.map((state) => (
                 <MenuItem 

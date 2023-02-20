@@ -6,11 +6,13 @@ import TextField from "@mui/material/TextField";
 
 const InputField = ({label, name, onInputChange}) => {
     return (
-        <TextField 
+        <TextField
+        required
         label={label} 
         name={name} 
         onChange={onInputChange}
         size="small"
+        variant="standard"
         />
     )
 }
