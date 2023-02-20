@@ -1,19 +1,27 @@
+// react lib
 import React, { useState } from 'react'
+
+// Components
 import { Header } from "../index"
 import Modal from './Modal'
-import "./create-employee.css"
-import { states } from '../../utils/constants';
+import InputField from './EmployeeForm/InputField';
+import SelectField from './EmployeeForm/SelectField';
 
+import Box from "@mui/material/Box";
+
+// css styles
+import "./create-employee.css"
+
+// redux
 import { useDispatch } from "react-redux";
 import { add } from '../../features/employeeSlice';
+import InputNumber from './EmployeeForm/InputNumber';
 
 const CreateEmployee = () => {
-    // states
     const [openModal, setOpenModal] = useState(false);
     const [employeeInfos, setEmployeeInfos] = useState({firstname: "", lastname: "", dateOfBirth: null,startDate: null, street: "", city: "", state: "", zipCode: null, department: "",
     })
 
-    // redux tools
     const dispatch = useDispatch();
 
     const handleInputChange = (e) => {
@@ -45,25 +53,23 @@ const CreateEmployee = () => {
                         </h2>
                         <a href="/employees-list" className='employee__title-link'>View Current Employees</a>
                     </div>
-                    <form id="create-employee" className='employee__form' onSubmit={handleSubmit}>
+                    <Box 
+                    className='employee__form' 
+                    component="form"
+                    onSubmit={handleSubmit}
+                    >
                         <div className="input__group">
-                            <label htmlFor="first-name">First name :</label>
-                            <input 
-                            type="text" 
-                            id="first-name" 
-                            name='firstname' 
-                            required
-                            onChange={handleInputChange}/>
+                            <InputField 
+                            label="Firstname" 
+                            name="firstname"
+                            onInputChange={handleInputChange}/>
                         </div>
-                        
+
                         <div className="input__group">
-                            <label htmlFor="last-name">Last name :</label>
-                            <input 
-                            type="text" 
-                            id="last-name" 
-                            name='lastname' 
-                            required
-                            onChange={handleInputChange}/>
+                            <InputField 
+                            label="Lastname" 
+                            name="lastname"
+                            onInputChange={handleInputChange}/>
                         </div>
 
                         <div className="input__group">
@@ -90,69 +96,47 @@ const CreateEmployee = () => {
                             <legend>Address</legend>
 
                             <div className="input__group">
-                                <label htmlFor="street">Street :</label>
-                                <input 
-                                id="street" 
-                                type="text" 
-                                name='street'
-                                required 
-                                onChange={handleInputChange}/>
+                                <InputField 
+                                label="Street" 
+                                name="street"
+                                onInputChange={handleInputChange}/>
                             </div>
 
                             <div className="input__group">
-                                <label htmlFor="city">City :</label>
-                                <input 
-                                id="city" 
-                                type="text" 
-                                name='city' 
-                                required
-                                onChange={handleInputChange}/>
+                                <InputField 
+                                label="City" 
+                                name="city"
+                                onInputChange={handleInputChange}/>
                             </div>
 
                             <div className="input__group">
-                                <label htmlFor="state">State :</label>
-                                <select 
-                                name="state" 
-                                id="state" 
-                                required
-                                onChange={handleInputChange}>
-                                    {states.map((state, index) => (
-                                        <option key={index} value={state.abbreviation}>{state.name}</option>
-                                    ))}
-                                </select>
+                                <SelectField 
+                                label="State" 
+                                name="state"
+                                onInputChange={handleInputChange}/>
                             </div>
 
                             <div className="input__group">
-                                <label htmlFor="zip-code">Zip code :</label>
-                                <input 
-                                id="zip-code" 
-                                type="number" 
-                                name='zipCode'
-                                required 
-                                onChange={handleInputChange}/>
+                                <InputNumber 
+                                label="Zip Code"
+                                name="zipCode"
+                                onInputChange={handleInputChange}
+                                />
                             </div>
                         </fieldset>
 
-                        <div className="select__group">
-                            <label htmlFor="department">Department :</label>
-                            <select 
-                            name="department" 
-                            id="department"
-                            required 
-                            onChange={handleInputChange}>
-                                <option>Sales</option>
-                                <option>Marketing</option>
-                                <option>Engineering</option>
-                                <option>Human Resources</option>
-                                <option>Legal</option>
-                            </select>
+                        <div className="input__group">
+                            <SelectField 
+                            label="Department" 
+                            name="department"
+                            onInputChange={handleInputChange}/>
                         </div>
 
                         <button className="button employee__form-button" type='submit'>
                             Save 
                             <i className="uil uil-plus-circle button__icon"></i>
                         </button>
-                    </form>
+                    </Box>
                 </div>
             </section>
         </main>
