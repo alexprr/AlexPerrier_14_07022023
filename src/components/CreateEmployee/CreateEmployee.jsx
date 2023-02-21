@@ -12,6 +12,8 @@ import Box from "@mui/material/Box";
 // css styles
 import "./create-employee.css"
 
+import { states, departments } from '../../utils/constants';
+
 // redux
 import { useDispatch } from "react-redux";
 import { add } from '../../features/employeeSlice';
@@ -122,7 +124,8 @@ const CreateEmployee = () => {
                                 <SelectField 
                                 label="State" 
                                 name="state"
-                                onInputChange={handleInputChange}/>
+                                onInputChange={handleInputChange}
+                                data={states} />
                             </div>
 
                             <div className="input__group">
@@ -138,7 +141,8 @@ const CreateEmployee = () => {
                             <SelectField 
                             label="Department" 
                             name="department"
-                            onInputChange={handleInputChange}/>
+                            onInputChange={handleInputChange}
+                            data={departments} />
                         </div>
 
                         <button className="button employee__form-button" type='submit'>
