@@ -3,9 +3,12 @@ import React, { useState } from 'react'
 
 // Components
 import { Header } from "../index"
-import Modal from './Modal'
+import Modal from './Modal/Modal'
 import InputField from './EmployeeForm/InputField';
 import SelectField from './EmployeeForm/SelectField';
+import InputNumber from './EmployeeForm/InputNumber';
+import States from './Data/States';
+import Departments from './Data/Departments';
 
 import Box from "@mui/material/Box";
 
@@ -15,11 +18,19 @@ import "./create-employee.css"
 // redux
 import { useDispatch } from "react-redux";
 import { add } from '../../features/employeeSlice';
-import InputNumber from './EmployeeForm/InputNumber';
 
 const CreateEmployee = () => {
     const [openModal, setOpenModal] = useState(false);
-    const [employeeInfos, setEmployeeInfos] = useState({firstname: "", lastname: "", dateOfBirth: null,startDate: null, street: "", city: "", state: "", zipCode: null, department: "",
+    const [employeeInfos, setEmployeeInfos] = useState({
+        firstname: "", 
+        lastname: "", 
+        dateOfBirth: null,
+        startDate: null, 
+        street: "", 
+        city: "", 
+        state: "", 
+        zipCode: null, 
+        department: "",
     })
 
     const dispatch = useDispatch();
@@ -72,26 +83,6 @@ const CreateEmployee = () => {
                             onInputChange={handleInputChange}/>
                         </div>
 
-                        <div className="input__group">
-                            <label htmlFor="date-of-birth">Date of birth :</label>
-                            <input 
-                            id="date-of-birth" 
-                            type="date" 
-                            name='dateOfBirth'
-                            required 
-                            onChange={handleInputChange}/>
-                        </div>
-
-                        <div className="input__group">
-                            <label htmlFor="start-date">Start date :</label>
-                            <input 
-                            id="start-date" 
-                            type="date" 
-                            name='startDate'
-                            required 
-                            onChange={handleInputChange}/>
-                        </div>
-
                         <fieldset className="employee__address">
                             <legend>Address</legend>
 
@@ -113,7 +104,10 @@ const CreateEmployee = () => {
                                 <SelectField 
                                 label="State" 
                                 name="state"
-                                onInputChange={handleInputChange}/>
+                                onInputChange={handleInputChange}
+                                >
+                                    <States />
+                                </SelectField>
                             </div>
 
                             <div className="input__group">
@@ -129,7 +123,9 @@ const CreateEmployee = () => {
                             <SelectField 
                             label="Department" 
                             name="department"
-                            onInputChange={handleInputChange}/>
+                            onInputChange={handleInputChange}>
+                                <Departments />
+                            </SelectField>
                         </div>
 
                         <button className="button employee__form-button" type='submit'>
