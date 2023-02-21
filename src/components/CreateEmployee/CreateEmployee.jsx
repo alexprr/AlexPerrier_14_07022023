@@ -62,7 +62,6 @@ const CreateEmployee = () => {
                             <i class="fa-solid fa-user-plus employee__title-icon"></i>
                             Create Employee
                         </h2>
-                        <a href="/employees-list" className='employee__title-link'>View Current Employees</a>
                     </div>
                     <Box 
                     className='employee__form' 
