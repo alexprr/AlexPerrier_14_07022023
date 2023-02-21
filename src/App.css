@@ -16,7 +16,7 @@ body,
 button,
 input,
 textarea {
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 input,
@@ -28,6 +28,10 @@ a {
     text-decoration: none;
 }
 
+a:visited {
+    color: initial;
+}
+
 ul {
     list-style: none;
 }
@@ -36,6 +40,11 @@ button {
     cursor: pointer;
     border: none;
     outline: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
 }
 
 .bg-dark {
