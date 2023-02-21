@@ -5,10 +5,7 @@ import React from "react";
 import TextField from "@mui/material/TextField";
 import MenuItem from "@mui/material/MenuItem";
 
-// USA states data
-import { states } from "../../../utils/constants";
-
-const SelectField = ({label, name, onInputChange}) => {
+const SelectField = ({label, name, onInputChange, children}) => {
     return (
         <TextField
         required 
@@ -19,14 +16,7 @@ const SelectField = ({label, name, onInputChange}) => {
         size="small"
         variant="standard"
         >
-            {states.map((state) => (
-                <MenuItem 
-                key={state.abbreviation} 
-                value={state.abbreviation}
-                >
-                    {state.name}
-                </MenuItem>
-            ))}
+            {children}
         </TextField>
     )
 }
