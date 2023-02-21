@@ -18,15 +18,17 @@
     margin-bottom: 1rem;
 }
 
-.employees__title-icon {
-    margin-left: 8px;
+.employees__title-icon,
+.employees__nav-icon {
+    margin-right: 1rem;
+    font-size: 1.25rem;
 }
 
 .employees__title-link {
     color: #000;
 }
 
-.employees__title-link:hover {
+.employees__nav-link:hover {
     color: rgb(26, 188, 156);
     border-bottom: 1px solid rgb(26, 188, 156);
 }

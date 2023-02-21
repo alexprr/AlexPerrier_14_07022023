@@ -6,6 +6,7 @@ import { Header } from "../index"
 import Modal from './Modal/Modal'
 import InputField from './EmployeeForm/InputField';
 import SelectField from './EmployeeForm/SelectField';
+import InputNumber from './EmployeeForm/InputNumber';
 
 import Box from "@mui/material/Box";
 
@@ -17,7 +18,6 @@ import { states, departments } from '../../utils/constants';
 // redux
 import { useDispatch } from "react-redux";
 import { add } from '../../features/employeeSlice';
-import InputNumber from './EmployeeForm/InputNumber';
 
 const CreateEmployee = () => {
     const [openModal, setOpenModal] = useState(false);
@@ -59,8 +59,8 @@ const CreateEmployee = () => {
                 <div className="employee__content">
                     <div className='employee__title'>
                         <h2>
+                            <i class="fa-solid fa-user-plus employee__title-icon"></i>
                             Create Employee
-                            <i className="uil uil-user-plus employee__title-icon"></i>
                         </h2>
                         <a href="/employees-list" className='employee__title-link'>View Current Employees</a>
                     </div>
@@ -147,7 +147,7 @@ const CreateEmployee = () => {
 
                         <button className="button employee__form-button" type='submit'>
                             Save 
-                            <i className="uil uil-plus-circle button__icon"></i>
+                            <i class="fa-solid fa-plus button__icon"></i>
                         </button>
                     </Box>
                 </div>

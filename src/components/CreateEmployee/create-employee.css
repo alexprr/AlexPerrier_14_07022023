@@ -16,7 +16,7 @@
 }
 
 .employee__title-icon {
-    margin-left: 8px;
+    margin-right: 1rem;
 }
 
 .employee__title-link {
@@ -24,6 +24,7 @@
 }
 
 .employee__title-link:hover {
+    color: rgb(26, 188, 156);
     border-bottom: 1px solid rgb(26, 188, 156);
 }
 
@@ -31,7 +32,6 @@
     width: 600px;
     display: grid;
     gap: 1rem;
-    padding: 1rem;
     border-radius: 1rem;
 }
 
@@ -81,6 +81,13 @@ fieldset .input__group {
     justify-content: center;
     justify-self: center;
     align-items: center;
+    font-size: 1rem;
+}
+
+@media screen and (min-width: 1024px) {
+    .employee__form {
+        gap: .5rem;
+    }
 }
 
 @media screen and (max-width: 768px) {
@@ -91,11 +98,23 @@ fieldset .input__group {
     .employee__form {
         width: 100%;
     }
+
+    .employee__title {
+        flex-direction: column;
+    }
+
+    .employee__title h2 {
+        margin-bottom: 0.5rem;
+    }
 }
 
 @media screen and (max-width: 576px) {
     .employee h2 {
         font-size: 1rem;
+    }
+
+    .employee__title h2 {
+        margin-bottom: 0.5rem;
     }
 
     .employee__title-link {
@@ -121,13 +140,5 @@ fieldset .input__group {
     .input__group select,
     .select__group select {
         width: initial;
-    }
-
-    .employee__title {
-        display: block;
-    }
-
-    .employee__title h2 {
-        margin-bottom: 0.5rem;
     }
 }

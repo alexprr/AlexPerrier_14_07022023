@@ -24,10 +24,15 @@ const EmployeeList = () => {
                 <div className="employees__content">
                     <div className='employees__title'>
                         <h2>
+                            <i class="fa-solid fa-user employees__title-icon"></i>
                             Current Employees
-                            <i className="uil uil-user employees__title-icon"></i>
                         </h2>
-                        <a href="/" className='employees__title-link'>Home</a>
+                        <div className='employees__nav'>
+                            <a href='/'>
+                                <i class="fa-solid fa-house employees__nav-icon"></i>
+                            </a>
+                            <a href="/" className='employees__nav-link'>Home</a>
+                        </div>
                     </div>
                 </div>
 
