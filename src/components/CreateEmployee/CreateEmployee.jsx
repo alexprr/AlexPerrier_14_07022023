@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 
 // Components
 import { Header } from "../index"
-import Modal from './Modal'
+import Modal from './Modal/Modal'
 import InputField from './EmployeeForm/InputField';
 import SelectField from './EmployeeForm/SelectField';
 
@@ -19,7 +19,16 @@ import InputNumber from './EmployeeForm/InputNumber';
 
 const CreateEmployee = () => {
     const [openModal, setOpenModal] = useState(false);
-    const [employeeInfos, setEmployeeInfos] = useState({firstname: "", lastname: "", dateOfBirth: null,startDate: null, street: "", city: "", state: "", zipCode: null, department: "",
+    const [employeeInfos, setEmployeeInfos] = useState({
+        firstname: "", 
+        lastname: "", 
+        dateOfBirth: null,
+        startDate: null, 
+        street: "", 
+        city: "", 
+        state: "", 
+        zipCode: null, 
+        department: "",
     })
 
     const dispatch = useDispatch();
@@ -72,7 +81,7 @@ const CreateEmployee = () => {
                             onInputChange={handleInputChange}/>
                         </div>
 
-                        <div className="input__group">
+                        {/* <div className="input__group">
                             <label htmlFor="date-of-birth">Date of birth :</label>
                             <input 
                             id="date-of-birth" 
@@ -90,7 +99,7 @@ const CreateEmployee = () => {
                             name='startDate'
                             required 
                             onChange={handleInputChange}/>
-                        </div>
+                        </div> */}
 
                         <fieldset className="employee__address">
                             <legend>Address</legend>
@@ -141,7 +150,7 @@ const CreateEmployee = () => {
             </section>
         </main>
 
-        <Modal open={openModal} onClose={() => setOpenModal(false)}/>
+        {openModal && <Modal onClose={() => setOpenModal(false)} />}
     </div>
   )
 }
