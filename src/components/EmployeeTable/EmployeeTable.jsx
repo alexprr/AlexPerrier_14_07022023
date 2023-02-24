@@ -4,7 +4,7 @@ import { useTable, useSortBy, useGlobalFilter, usePagination } from "react-table
 import GlobalFilter from './GlobalFilter';
 import DropdownFilter from './DropdownFilter';
 
-import { Table, TableBody, TableCell, TableRow } from "@mui/material"
+import { Table, TableBody, TableCell, TableHead, TableRow } from "@mui/material"
 
 import "./table.css";
 
@@ -45,6 +45,7 @@ const EmployeeTable = ({ data, columns }) => {
       </div>
     
       <Table {...getTableProps()} id="table">
+        <TableHead>
           {headerGroups.map((headerGroup) => (
             <TableRow {...headerGroup.getHeaderGroupProps()}>
               {headerGroup.headers.map((column) => (
@@ -57,6 +58,8 @@ const EmployeeTable = ({ data, columns }) => {
               ))}
             </TableRow>
           ))}
+        </TableHead>
+          
         <TableBody {...getTableBodyProps()}>
               {page.map(row => {
                 prepareRow(row);
