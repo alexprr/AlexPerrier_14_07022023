@@ -5,6 +5,15 @@
     margin-bottom: 1rem;
 }
 
+#table {
+    background-color: #fff;
+    box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.2);
+}
+
+#table tr:hover {
+    background-color: rgb(199, 193, 193, .2);
+}
+
 .table__search {
     display: flex;
     justify-content: flex-end;

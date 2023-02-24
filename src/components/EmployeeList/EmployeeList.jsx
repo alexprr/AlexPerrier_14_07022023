@@ -1,40 +1,40 @@
 // Hooks
-import React, { useMemo } from 'react';
+import React, { useMemo } from "react";
 // Components
 import { Header, EmployeeTable } from "../index";
 // css
 import "./employee-list.css";
 // redux
-import { useSelector } from 'react-redux';
+import { useSelector } from "react-redux";
 
-import { COLUMNS} from '../../utils/constants';
+import { COLUMNS } from "../../utils/constants";
 
 const EmployeeList = () => {
-    const { employeesList } = useSelector((state) => state.employee);
-    
-    const data = useMemo(() => employeesList, [employeesList]);
-    const columns = useMemo(() => COLUMNS, []);
+	const { employeesList } = useSelector((state) => state.employee);
 
-  return (
-    <div>
-        <Header />
+	const data = useMemo(() => employeesList, [employeesList]);
+	const columns = useMemo(() => COLUMNS, []);
 
-        <main className='main employees__container'>
-            <section className="employees flex">
-                <div className="employees__content">
-                    <div className='employees__title'>
-                        <h2>
-                            <i className="fa-solid fa-user employees__title-icon"></i>
-                            Current Employees
-                        </h2>
-                    </div>
-                </div>
+	return (
+		<div>
+			<Header />
 
-                <EmployeeTable data={data} columns={columns} />
-            </section>
-        </main>
-    </div>
-  )
-}
+			<main className="main employees__container">
+				<section className="employees flex">
+					<div className="employees__content">
+						<div className="employees__title">
+							<h2>
+								<i className="fa-solid fa-user employees__title-icon"></i>
+								Current Employees
+							</h2>
+						</div>
+					</div>
 
-export default EmployeeList
+					<EmployeeTable data={data} columns={columns} />
+				</section>
+			</main>
+		</div>
+	);
+};
+
+export default EmployeeList;

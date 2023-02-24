@@ -12,6 +12,10 @@ html {
     scroll-behavior: smooth;
 }
 
+body {
+    background-color: azure;
+}
+
 body,
 button,
 input,

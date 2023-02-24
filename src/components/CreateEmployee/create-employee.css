@@ -22,8 +22,12 @@
 .employee__form {
     width: 600px;
     display: grid;
-    gap: 1rem;
+    row-gap: 1rem;
+    margin-top: 2rem;
+    padding: 1rem 2rem;
     border-radius: 1rem;
+    background-color: #fff;
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.2);
 }
 
 fieldset {
@@ -35,7 +39,8 @@ fieldset .input__group {
 }
 
 .input__group,
-.select__group {
+.select__group,
+.date__group {
     display: flex;
     flex-direction: column;
 }
@@ -49,9 +54,14 @@ fieldset .input__group {
     width: 400px;
 }
 
+.date__group {
+    margin-top: 10px;
+}
+
 .employee__address {
     display: flex;
     flex-direction: column;
+    margin: 0;
 }
 
 .employee__address {
@@ -77,17 +87,18 @@ fieldset .input__group {
 
 @media screen and (min-width: 1024px) {
     .employee__form {
-        gap: .5rem;
+        gap: 1rem;
     }
 }
 
 @media screen and (max-width: 768px) {
     .employee__content {
-        margin: 1rem 0;
+        margin: 2rem 0;
     }
 
     .employee__form {
         width: 100%;
+        margin: 0;
     }
 
     .employee__title {
@@ -110,6 +121,10 @@ fieldset .input__group {
 
     .employee__title-link {
         font-size: small;
+    }
+
+    .employee__form {
+        padding: 1rem;
     }
 
     .employee__address legend {
