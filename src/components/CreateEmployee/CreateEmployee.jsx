@@ -3,7 +3,7 @@ import React, { useState } from "react";
 
 // Components
 import { Header } from "../index";
-import Modal from "./Modal/Modal";
+import ModalContainer from "./ModalContainer/ModalContainer";
 import InputField from "./EmployeeForm/InputField";
 import SelectField from "./EmployeeForm/SelectField";
 import InputNumber from "./EmployeeForm/InputNumber";
@@ -153,7 +153,7 @@ const CreateEmployee = () => {
 				</section>
 			</main>
 
-			{openModal && <Modal onClose={() => setOpenModal(false)} />}
+			{openModal && <ModalContainer onClose={() => setOpenModal(false)} />}
 		</div>
 	);
 };
